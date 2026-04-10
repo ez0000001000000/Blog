@@ -16,7 +16,7 @@ A cutting-edge blog built with Next.js 16, Fumadocs MDX, and Tailwind CSS. Deliv
 
 ```bash
 # Clone the repository
-git clone https://github.com/ez0000001000000/blog.git
+git clone https://github.com/ez0000001000000/Blog.git
 cd blog
 
 # Install dependencies
@@ -83,14 +83,14 @@ Add your author details to the `lib/authors.ts` file.
 // lib/authors.ts
 export const authors: Record<string, Author> = {
   dillion: {
-    name: "Dillion Verma",
+    name: "Joe Schmoe",
     position: "Software Engineer",
-    avatar: "/authors/dillion.png",
+    avatar: "/authors/joeschmoe.png",
   },
   arghya: {
-    name: "Arghya Das",
+    name: "Jiggly Puff",
     position: "Design System Engineer",
-    avatar: "/authors/arghya.png",
+    avatar: "/authors/jigglepuff.png",
   },
   // Add your author details here
   yourname: {
