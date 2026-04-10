@@ -16,8 +16,8 @@ A cutting-edge blog built with Next.js 16, Fumadocs MDX, and Tailwind CSS. Deliv
 
 ```bash
 # Clone the repository
-git clone <repo-url>
-cd blog-template
+git clone https://github.com/ez0000001000000/blog.git
+cd blog
 
 # Install dependencies
 pnpm install
