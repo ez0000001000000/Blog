@@ -1,0 +1,104 @@
+---
+title: "Anthropic's Massive Claude Code Leak: 2,000 Files Exposed"
+description: "Nearly 2,000 internal files and 500,000 lines of code leaked, revealing plans for Mythos, Buddy the virtual assistant, and an always-on AI agent."
+date: "2026-03-31"
+featured: true
+readTime: "7 min read"
+author: "hackermouse"
+thumbnail: "/buddy-image.png"
+---
+
+# Anthropic's Massive Claude Code Leak: 2,000 Files Exposed
+
+On March 31, 2026, Anthropic accidentally released part of the internal source code for its AI-powered coding assistant, Claude Code, due to "human error." The leak exposed nearly 2,000 files and 500,000 lines of code, quickly spreading across GitHub and raising fresh security questions at the AI company.
+
+## The Leak: What Happened
+
+An internal-use file mistakenly included in a software update pointed to an archive containing nearly 2,000 files and 500,000 lines of code, which were quickly copied to developer platform GitHub.
+
+A post on X sharing a link to the leaked code had more than 29 million views early the next day. A rewritten version of the source code quickly became GitHub's fastest-ever downloaded repository. Anthropic issued copyright takedown requests to try to contain the code's spread.
+
+"Earlier today, a Claude Code release included some internal source code. No sensitive customer data or credentials were involved or exposed," an Anthropic spokesperson said. "This was a release packaging issue caused by human error, not a security breach."
+
+The exposed code was related to the tool's internal architecture but did not contain confidential data from Claude, the underlying AI model by Anthropic.
+
+## The Second Leak in Weeks
+
+This is the second time that Anthropic has had a data leak in recent weeks. Fortune previously reported on a separate breach and noted that the company was storing thousands of internal files on publicly accessible systems.
+
+That earlier leak included a draft of a blog post that referred to upcoming models known as "Mythos" and "Capybara" — suggesting Anthropic has major new AI models in development.
+
+Some experts worry the leaks suggest internal security vulnerabilities within Anthropic. That could be particularly troubling for a company focused on AI safety.
+
+The leaks could also help competitors, like OpenAI and Google, better understand how Claude Code's AI system works. The Wall Street Journal reported that the most recent leak included commercially sensitive information, such as tools and instructions for getting its AI models to work as coding agents.
+
+## What the Leak Revealed: Buddy the Virtual Assistant
+
+On the lighter side, the Claude Code source code also describes Buddy, a Clippy-like "separate watcher" that "sits beside the user's input box and occasionally comments in a speech bubble."
+
+These virtual creatures would come in 18 randomized "species" forms ranging from blob to axolotl and appear as five-line-by-12-column ASCII art animations with tiny hats.
+
+A comment suggests that Buddy was planned for a "teaser window" launch between April 1 and 7 before a full launch in May. It's unclear how the source code leak has impacted those plans.
+
+## Undercover Mode: Hiding AI Identity
+
+While the Kairos daemon doesn't seem to have been fully implemented in code yet, a separate "Undercover mode" appears to be inactive, letting Anthropic employees contribute to public open source repositories without revealing themselves as AI agents.
+
+The reference prompts for this mode focus primarily on protecting "internal model codenames, project names, or other Anthropic-internal information" from becoming accidentally public through open source commits.
+
+But the prompt also explicitly tells the system that its commits should "never include… the phrase 'Claude Code' or any mention that you are an AI," and to omit any "co-Authored-By lines or any other attribution."
+
+That kind of obfuscation seems especially relevant given recent controversies surrounding AI coding tools being used on popular repositories.
+
+## Future Features Revealed
+
+Other potential planned Claude Code features referenced in the source code leak include:
+
+- **UltraPlan**: A feature allowing Opus-level Claude models to "draft an advanced plan you can edit and approve," which can run for 10 to 30 minutes at a time.
+
+- **Voice Mode**: Letting users chat directly to Claude Code, much like similar AI systems.
+
+- **Bridge mode**: Expands on the existing Anthropic Dispatch tool to allow for remote Claude Code sessions that are fully controllable from an outside browser or mobile device.
+
+- **Coordinator tool**: Designed to spawn and "orchestrate software engineering tasks across multiple workers" through parallel processes that could communicate via WebSockets.
+
+## The Mythos and Capybara Reveal
+
+The earlier leak in March revealed that Anthropic was working on powerful new AI models. The internal documents mentioned "Mythos" and "Capybara" as upcoming models that would represent a "step change in capabilities."
+
+This suggests Anthropic has been developing next-generation models that could significantly outperform current Claude offerings. The company has been relatively quiet about their roadmap, so these leaks provide rare insight into their internal plans.
+
+## Competitive Implications
+
+The leak provides competitors with valuable insight into how Anthropic builds its coding agents:
+
+- **OpenAI**: Can better understand Claude Code's architecture and potentially develop competing features
+- **Google**: Gains insight into Anthropic's approach to developer-focused AI tools
+- **Microsoft**: Information about agent orchestration and tool-calling mechanisms
+
+For the AI safety community, the leaks raise concerns about a company that positions itself as a safety-focused AI provider having such significant internal security gaps.
+
+## Anthropic's Growing Success Amid Controversy
+
+Despite the leaks, Anthropic's Claude chatbot has been gaining significant traction:
+
+- **Paid subscriptions** have more than doubled this year, per an Anthropic spokesperson
+- **Popularity boost** amid CEO Dario Amodei's tussle with the Pentagon
+- **Topped Apple's chart** of top free apps in the US after Amodei refused to back down on red lines around the use of AI for mass surveillance and fully autonomous weapons
+
+The company is also fighting US government allegations that it poses a supply chain risk, with a US district judge recently granting a temporary injunction to block the designation.
+
+## The Road Ahead
+
+The source code leak represents a significant embarrassment for Anthropic, which has positioned itself as a more safety-conscious alternative to OpenAI. The company must now:
+
+1. **Strengthen internal security** to prevent future leaks
+2. **Manage the spread** of leaked code across GitHub
+3. **Rebuild trust** with enterprise customers concerned about security
+4. **Decide on future features** like Buddy and Undercover mode
+
+The $1 billion question is whether these leaks were truly isolated incidents or symptoms of deeper security issues within one of AI's most prominent safety-focused companies.
+
+---
+
+*This analysis is based on reports from The Guardian, Ars Technica, The Verge, Fortune, and The Wall Street Journal.*
