@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
-import { docs, meta } from "@/.source";
+import { docs, meta } from "@/.source/server";
+import { toFumadocsSource } from "fumadocs-mdx/runtime/server";
 import { loader } from "fumadocs-core/source";
-import { createMDXSource } from "fumadocs-mdx";
 import { getAuthor, isValidAuthor, type AuthorKey } from "@/lib/authors";
 
 export const runtime = "nodejs";
@@ -14,7 +14,7 @@ export const contentType = "image/png";
 
 const blogSource = loader({
   baseUrl: "/blog",
-  source: createMDXSource(docs, meta),
+  source: toFumadocsSource(docs, meta),
 });
 
 const getAssetData = async (authorAvatar?: string) => {

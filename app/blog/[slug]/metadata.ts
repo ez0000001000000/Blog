@@ -1,12 +1,12 @@
 import { Metadata } from "next";
-import { docs, meta } from "@/.source";
+import { docs, meta } from "@/.source/server";
+import { toFumadocsSource } from "fumadocs-mdx/runtime/server";
 import { loader } from "fumadocs-core/source";
-import { createMDXSource } from "fumadocs-mdx";
 import { siteConfig } from "@/lib/site";
 
 const blogSource = loader({
   baseUrl: "/blog",
-  source: createMDXSource(docs, meta),
+  source: toFumadocsSource(docs, meta),
 });
 
 export async function generateMetadata({

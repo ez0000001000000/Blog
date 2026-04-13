@@ -1,10 +1,11 @@
-import { docs, meta } from "@/.source";
+import { docs, meta } from "@/.source/server";
+import { toFumadocsSource } from "fumadocs-mdx/runtime/server";
 import { loader } from "fumadocs-core/source";
-import { createMDXSource } from "fumadocs-mdx";
 import { Suspense } from "react";
-import { BlogCard } from "@/components/blog-card";
 import { TagFilter } from "@/components/tag-filter";
-import { FlickeringGrid } from "@/components/magicui/flickering-grid";
+import { StockTicker } from "@/components/stock-ticker";
+import { MarketTerminal } from "@/components/market-terminal";
+import { NewsFeed } from "@/components/news-feed";
 
 interface BlogData {
   title: string;
@@ -12,10 +13,6 @@ interface BlogData {
   date: string;
   tags?: string[];
   featured?: boolean;
-  readTime?: string;
-  author?: string;
-  authorImage?: string;
-  thumbnail?: string;
 }
 
 interface BlogPage {
@@ -25,7 +22,7 @@ interface BlogPage {
 
 const blogSource = loader({
   baseUrl: "/blog",
-  source: createMDXSource(docs, meta),
+  source: toFumadocsSource(docs, meta),
 });
 
 const formatDate = (date: Date): string => {
@@ -74,65 +71,59 @@ export default async function HomePage({
   }, {} as Record<string, number>);
 
   return (
-    <div className="min-h-screen bg-background relative">
-      <div className="absolute top-0 left-0 z-0 w-full h-[200px] [mask-image:linear-gradient(to_top,transparent_25%,black_95%)]">
-        <FlickeringGrid
-          className="absolute top-0 left-0 size-full"
-          squareSize={4}
-          gridGap={6}
-          color="#6B7280"
-          maxOpacity={0.2}
-          flickerChance={0.05}
-        />
-      </div>
-      <div className="p-6 border-b border-border flex flex-col gap-6 min-h-[250px] justify-center relative z-10">
-        <div className="max-w-7xl mx-auto w-full">
-          <div className="flex flex-col gap-2">
-            <h1 className="font-medium text-4xl md:text-5xl tracking-tighter">
-              HackerMouse Blog
-            </h1>
-            <p className="text-muted-foreground text-sm md:text-base lg:text-lg">
-              Cutting-edge insights on AI agents, technology, and digital innovation.
-            </p>
-          </div>
-        </div>
-        {allTags.length > 0 && (
-          <div className="max-w-7xl mx-auto w-full">
-            <TagFilter
-              tags={allTags}
-              selectedTag={selectedTag}
-              tagCounts={tagCounts}
-            />
-          </div>
-        )}
-      </div>
+    <div className="flex flex-col min-h-screen bg-background relative overflow-hidden">
+      {/* Top Level News Ticker */}
+      <StockTicker />
 
-      <div className="max-w-7xl mx-auto w-full px-6 lg:px-0">
-        <Suspense fallback={<div>Loading articles...</div>}>
-          <div
-            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative overflow-hidden border-x border-border ${
-              filteredBlogs.length < 4 ? "border-b" : "border-b-0"
-            }`}
-          >
-            {filteredBlogs.map((blog) => {
-              const date = new Date(blog.data.date);
-              const formattedDate = formatDate(date);
-
-              return (
-                <BlogCard
-                  key={blog.url}
-                  url={blog.url}
-                  title={blog.data.title}
-                  description={blog.data.description}
-                  date={formattedDate}
-                  thumbnail={blog.data.thumbnail}
-                  showRightBorder={filteredBlogs.length < 3}
+      <div className="flex flex-1 relative overflow-hidden divide-x divide-border h-[calc(100vh-56px-36px)]">
+        {/* Main Center Section: Intelligence Feed */}
+        <main className="flex-1 overflow-y-auto custom-scrollbar relative">
+          <div className="p-6 border-b border-border bg-muted/10">
+            <div className="max-w-4xl flex flex-col gap-1">
+              <h1 className="font-bold text-2xl tracking-tighter uppercase font-mono">
+                Intelligence_Feed // 0.1
+              </h1>
+              <p className="text-muted-foreground text-[10px] font-mono uppercase tracking-widest">
+                Curating the frontier of AI, coding, and market shifts.
+              </p>
+            </div>
+           
+            {allTags.length > 0 && (
+              <div className="mt-6">
+                <TagFilter
+                  tags={allTags}
+                  selectedTag={selectedTag}
+                  tagCounts={tagCounts}
                 />
-              );
-            })}
+              </div>
+            )}
           </div>
-        </Suspense>
+
+          <Suspense fallback={<div className="p-10 font-mono text-[10px] animate-pulse">BOOTING_CORE_INDEX...</div>}>
+             <NewsFeed 
+               key={selectedTag}
+               blogs={filteredBlogs.map(blog => ({
+                 url: blog.url,
+                 data: {
+                   title: blog.data.title,
+                   description: blog.data.description,
+                   date: blog.data.date,
+                   thumbnail: blog.data.thumbnail,
+                   featured: blog.data.featured,
+                 }
+               }))} 
+             />
+          </Suspense>
+    
+        </main>
+
+        {/* Right Section: Market Terminal Sidebar */}
+        <div className="hidden lg:block w-[320px] 2xl:w-[380px] shrink-0 h-full overflow-hidden">
+           <MarketTerminal />
+        </div>
       </div>
     </div>
   );
 }
+
+

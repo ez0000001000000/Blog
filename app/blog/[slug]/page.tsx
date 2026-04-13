@@ -1,7 +1,7 @@
-import { docs, meta } from "@/.source";
+import { docs, meta } from "@/.source/server";
+import { toFumadocsSource } from "fumadocs-mdx/runtime/server";
 import { DocsBody } from "fumadocs-ui/page";
 import { loader } from "fumadocs-core/source";
-import { createMDXSource } from "fumadocs-mdx";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -22,7 +22,7 @@ interface PageProps {
 
 const blogSource = loader({
   baseUrl: "/blog",
-  source: createMDXSource(docs, meta),
+  source: toFumadocsSource(docs, meta),
 });
 
 const formatDate = (date: Date): string => {
