@@ -13,6 +13,7 @@ interface BlogData {
   date: string;
   tags?: string[];
   featured?: boolean;
+  thumbnail?: string;
 }
 
 interface BlogPage {
