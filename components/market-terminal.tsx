@@ -12,8 +12,7 @@ import { getMarketQuotes } from "@/lib/stock-actions";
 
 const WATCHLIST_SYMBOLS = [
   "NVDA", "PLTR", "MSFT", "AAPL", "AMZN", 
-  "META", "GOOGL", "AMD", "TSLA", "NFLX",
-  "ARM", "SMCI", "AVGO", "BTC-USD"
+  "META", "BTC-USD"
 ];
 
 export function MarketTerminal() {

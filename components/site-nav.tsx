@@ -26,8 +26,6 @@ export function SiteNav() {
         <div className="flex items-center gap-4">
           <nav className="flex items-center gap-6 text-sm font-medium">
              <Link href="/" className="hover:text-primary transition-colors uppercase font-mono text-[11px] tracking-widest border-b-2 border-primary pb-0.5">Terminal</Link>
-             <Link href="#" className="text-muted-foreground hover:text-primary transition-colors uppercase font-mono text-[11px] tracking-widest">Archive</Link>
-             <Link href="#" className="text-muted-foreground hover:text-primary transition-colors uppercase font-mono text-[11px] tracking-widest">About</Link>
           </nav>
           <div className="h-4 w-px bg-border mx-2" />
           <ThemeToggle />
